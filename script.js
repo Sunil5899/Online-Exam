@@ -112,3 +112,8 @@ async function login() {
         console.error(error);
     }
 }
+function startExam(subject) {
+
+    alert("You selected: " + subject);
+
+}
