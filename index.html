@@ -13,34 +13,75 @@
 
     <h1>Online Exam</h1>
 
-    <div class="tabs">
-        <button onclick="showLogin()">Login</button>
-        <button onclick="showRegister()">Register</button>
+    <!-- LOGIN / REGISTER -->
+    <div id="authBox">
+
+        <div class="tabs">
+            <button onclick="showLogin()">Login</button>
+            <button onclick="showRegister()">Register</button>
+        </div>
+
+        <div id="loginBox">
+            <h2>Student Login</h2>
+
+            <input type="text" id="loginUsername" placeholder="Username">
+            <input type="password" id="loginPassword" placeholder="Password">
+
+            <button onclick="login()">Login</button>
+
+            <p id="loginMessage"></p>
+        </div>
+
+        <div id="registerBox" style="display:none;">
+            <h2>Student Registration</h2>
+
+            <input type="text" id="regName" placeholder="Full Name">
+            <input type="text" id="regUsername" placeholder="Username">
+            <input type="password" id="regPassword" placeholder="Password">
+
+            <button onclick="register()">Create Account</button>
+
+            <p id="registerMessage"></p>
+        </div>
+
     </div>
 
-    <!-- Login -->
-    <div id="loginBox">
-        <h2>Student Login</h2>
 
-        <input type="text" id="loginUsername" placeholder="Username">
-        <input type="password" id="loginPassword" placeholder="Password">
+    <!-- SUBJECT SELECTION -->
+    <div id="subjectBox" style="display:none;">
 
-        <button onclick="login()">Login</button>
+        <h2 id="welcomeName"></h2>
 
-        <p id="loginMessage"></p>
-    </div>
+        <p>Select Subject</p>
 
-    <!-- Registration -->
-    <div id="registerBox" style="display:none;">
-        <h2>Student Registration</h2>
+        <div class="subjects">
 
-        <input type="text" id="regName" placeholder="Full Name">
-        <input type="text" id="regUsername" placeholder="Username">
-        <input type="password" id="regPassword" placeholder="Password">
+            <button onclick="startExam('Computer')">
+                Computer
+            </button>
 
-        <button onclick="register()">Create Account</button>
+            <button onclick="startExam('Mathematics')">
+                Mathematics
+            </button>
 
-        <p id="registerMessage"></p>
+            <button onclick="startExam('Hindi')">
+                Hindi
+            </button>
+
+            <button onclick="startExam('English')">
+                English
+            </button>
+
+            <button onclick="startExam('Reasoning')">
+                Reasoning
+            </button>
+
+            <button onclick="startExam('General Knowledge')">
+                General Knowledge
+            </button>
+
+        </div>
+
     </div>
 
 </div>
