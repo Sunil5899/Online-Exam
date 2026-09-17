@@ -87,6 +87,27 @@
 </div>
 
 <script src="script.js"></script>
+<!-- EXAM BOX -->
+<div id="examBox" style="display:none;">
 
+    <div class="exam-header">
+        <h2 id="examSubject"></h2>
+        <div id="timer">20:00</div>
+    </div>
+
+    <div id="questionNumber"></div>
+
+    <h3 id="questionText"></h3>
+
+    <div id="options"></div>
+
+    <div class="exam-buttons">
+        <button onclick="previousQuestion()">Previous</button>
+        <button onclick="nextQuestion()">Next</button>
+        <button onclick="submitExam()">Submit Exam</button>
+    </div>
+
+</div>
+    
 </body>
 </html>
