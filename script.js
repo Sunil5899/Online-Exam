@@ -223,7 +223,8 @@ let currentQuestion = 0;
 let answers = [];
 let timerID = null;
 let seconds = 1200;
-
+let loggedInName = "";
+let loggedInUsername = "";
 
 /* =========================
    LOGIN / REGISTER
@@ -373,10 +374,12 @@ async function login() {
 
 
         if (result.status === "success") {
+           loggedInName = result.name;
+loggedInUsername = result.username;
 
             document.getElementById("authBox").style.display =
                 "none";
-
+           
             document.getElementById("subjectBox").style.display =
                 "block";
 
@@ -603,26 +606,81 @@ function updateTimer() {
    SUBMIT EXAM
 ========================= */
 
-function submitExam() {
+async function submitExam() {
 
     clearInterval(timerID);
 
-
-    const list =
-        questions[currentSubject];
-
+    const list = questions[currentSubject];
 
     let score = 0;
-
 
     list.forEach((q, index) => {
 
         if (answers[index] === q.answer) {
-
             score++;
+        }
+
+    });
+
+    const percentage =
+        (score / list.length) * 100;
+
+    alert(
+        "Exam Submitted!\n\n" +
+        "Subject: " + currentSubject + "\n" +
+        "Score: " + score + " / " + list.length + "\n\n" +
+        "Percentage: " + percentage.toFixed(2) + "%"
+    );
+
+
+    /* SAVE RESULT TO GOOGLE SHEET */
+
+    try {
+
+        const response = await fetch(GOOGLE_SHEET_URL, {
+
+            method: "POST",
+
+            body: JSON.stringify({
+
+                action: "result",
+
+                name: loggedInName,
+
+                username: loggedInUsername,
+
+                subject: currentSubject,
+
+                score: score,
+
+                total: list.length,
+
+                percentage: percentage.toFixed(2)
+
+            })
+
+        });
+
+
+        const result = await response.json();
+
+        if (result.status === "success") {
+
+            console.log("Result saved to Google Sheet");
+
+        } else {
+
+            console.log("Result save failed:", result.message);
 
         }
 
+    } catch (error) {
+
+        console.log("Result save error:", error);
+
+    }
+
+}
     });
 
 
