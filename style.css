@@ -60,6 +60,17 @@ input {
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 15px;
+
+    .subjects {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.subjects button {
+    min-height: 55px;
+}
 }
 
 p {
