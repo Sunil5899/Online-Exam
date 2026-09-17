@@ -95,14 +95,17 @@ async function login() {
 
         if (result.status === "success") {
 
-            message.innerText =
-                "Welcome " + result.name;
+    document.getElementById("authBox").style.display = "none";
 
-        } else {
+    document.getElementById("subjectBox").style.display = "block";
 
-            message.innerText = result.message;
-        }
+    document.getElementById("welcomeName").innerText =
+        "Welcome " + result.name;
 
+} else {
+
+    message.innerText = result.message;
+}
     } catch (error) {
 
         message.innerText = "Login failed.";
