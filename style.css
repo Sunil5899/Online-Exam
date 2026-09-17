@@ -77,3 +77,59 @@ p {
     margin-top: 15px;
     font-size: 14px;
 }
+
+.exam-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#timer {
+    background: #dc2626;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+#questionNumber {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+#questionText {
+    text-align: left;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+#options {
+    text-align: left;
+}
+
+.option {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f8fafc;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: #e5e7eb;
+}
+
+.exam-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.exam-buttons button:last-child {
+    grid-column: 1 / 3;
+}
